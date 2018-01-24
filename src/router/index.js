@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import WordOfTheDayComponent from '@/components/WordOfTheDayComponent'
+import DictionaryComponent from '@/components/DictionaryComponent'
+import TextAnalyserComponent from '@/components/TextAnalyserComponent'
 
 Vue.use(Router)
 
@@ -8,8 +10,20 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'WordOfTheDay',
+      component: WordOfTheDayComponent
+    },
+    {
+      path: '/dictionary/:word',
+      name: 'Dictionary',
+      component: DictionaryComponent,
+      props: true
+    },
+    {
+      path: '/text-analyser',
+      name: 'TextAnalyser',
+      component: TextAnalyserComponent,
+      props: (route) => ({ text: route.query.text })
     }
   ]
 })
