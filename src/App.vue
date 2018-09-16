@@ -19,6 +19,9 @@
           <router-link :to="{ name: 'TextAnalyser', query: { text: text } }">
             <button type="button" class="btn btn-secondary">Analise text</button>
           </router-link>
+          <router-link :to="{ name: 'Pdf'} ">
+            <button type="button" class="btn btn-secondary">Pdf</button>
+          </router-link>
         </div>
       </div>
       <div class="row align-items-end">
@@ -31,6 +34,8 @@
 </template>
 
 <script>
+window.Book = window.ePub('https://s3.amazonaws.com/moby-dick/')
+
 export default {
   name: 'App',
   data () {
